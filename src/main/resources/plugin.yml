@@ -1,0 +1,7 @@
+name: Crust
+main: us.corenetwork.crust.Crust
+version: 0.0.2-SNAPSHOT
+commands:
+  test:
+    description: This is a demo command.
+    usage: /test
