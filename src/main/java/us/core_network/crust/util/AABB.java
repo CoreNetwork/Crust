@@ -1,6 +1,7 @@
 package us.core_network.crust.util;
 
 import org.bukkit.Location;
+import org.bukkit.World;
 
 /**
  * Axis-aligned bounding-box
@@ -27,5 +28,13 @@ public class AABB {
 
     public boolean isInside(int x, int z) {
         return xBounds.isBetween(x) && zBounds.isBetween(z);
+    }
+
+    public Location getLowerCorner(World world) {
+        return new Location(world, xBounds.getLower(), 0, zBounds.getLower());
+    }
+
+    public Location getUpperCorner(World world) {
+        return new Location(world, xBounds.getUpper(), 0, zBounds.getUpper());
     }
 }

@@ -8,4 +8,8 @@ import java.util.UUID;
  */
 public class ListGroup extends HashSet<UUID> implements Group {
 
+    @Override
+    public String getDisplayName() {
+        return null;
+    }
 }

@@ -27,4 +27,8 @@ public class AABBStore<T> {
         }
         return ret;
     }
+
+    public void put(AABB aabb, T t) {
+        store.put(aabb, t);
+    }
 }

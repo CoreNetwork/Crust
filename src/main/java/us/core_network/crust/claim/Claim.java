@@ -5,6 +5,7 @@ import us.core_network.crust.util.Bounds;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * Claim
@@ -16,6 +17,7 @@ public class Claim {
     private ListGroup owners = new ListGroup();
     private ListGroup members = new ListGroup();
     private AllGroup anybody = new AllGroup();
+    private UUID originalOwner = null;
     private Claim parentClaim = null;
 
     public Claim(AABB horizontalBounds) {
@@ -27,9 +29,19 @@ public class Claim {
         this.verticalBounds = verticalBounds;
         this.parentClaim = parentClaim;
 
-        this.groups.put(owners, MutableClaimAbilities.buildAllowAll());
-        this.groups.put(members, MutableClaimAbilities.buildAllowAll());
-        this.groups.put(anybody, MutableClaimAbilities.buildDenyAll());
+        ClaimAbilities parentOwners = null;
+        ClaimAbilities parentMembers = null;
+        ClaimAbilities parentAnybody = null;
+
+        if (parentClaim != null) {
+            parentOwners = parentClaim.groups.get(parentClaim.owners);
+            parentMembers = parentClaim.groups.get(parentClaim.members);
+            parentAnybody = parentClaim.groups.get(parentClaim.anybody);
+        }
+
+        this.groups.put(owners, new ImmutableClaimAbilities(parentOwners, Activity.getAllAllow()));
+        this.groups.put(members, MutableClaimAbilities.buildAllowAll(parentMembers));
+        this.groups.put(anybody, MutableClaimAbilities.buildDenyAll(parentAnybody));
     }
 
     public AABB getHorizontalBounds() {

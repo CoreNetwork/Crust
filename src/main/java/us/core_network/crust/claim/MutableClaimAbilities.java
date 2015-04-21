@@ -11,22 +11,26 @@ public class MutableClaimAbilities extends ClaimAbilities {
 
     public static ClaimAbilities buildAllowAll(ClaimAbilities parent) {
         MutableClaimAbilities claimAbilities = new MutableClaimAbilities(parent);
-        for (Activity activity : Activity.values()) {
-            claimAbilities.setAllow(activity);
-        }
+        claimAbilities.store = Activity.getAllAllow();
         return claimAbilities;
     }
 
     public static ClaimAbilities buildDenyAll(ClaimAbilities parent) {
         MutableClaimAbilities claimAbilities = new MutableClaimAbilities(parent);
-        for (Activity activity : Activity.values()) {
-            claimAbilities.setDeny(activity);
-        }
+        claimAbilities.store = Activity.getAllDeny();
         return claimAbilities;
     }
 
     public MutableClaimAbilities(ClaimAbilities parent) {
         super(parent);
+    }
+
+    public void setActivity(Activity activity, Boolean allow) {
+        if (allow != null) {
+            store.put(activity, allow);
+        } else {
+            store.remove(activity);
+        }
     }
 
     public void setAllow(Activity activity) {

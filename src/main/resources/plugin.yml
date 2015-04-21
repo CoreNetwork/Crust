@@ -1,5 +1,5 @@
 name: Crust
-main: us.corenetwork.crust.Crust
+main: us.core_network.crust.CrustPlugin
 version: 0.0.2-SNAPSHOT
 commands:
   test:
