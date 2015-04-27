@@ -1,18 +1,18 @@
 package us.core_network.crust.claim.manipulation;
 
-import org.bukkit.Location;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerItemHeldEvent;
-import org.bukkit.inventory.ItemStack;
-import us.core_network.crust.CrustPlugin;
-import us.core_network.crust.claim.Claim;
-import us.core_network.crust.config.ItemConfig;
+        import org.bukkit.Location;
+        import org.bukkit.entity.Player;
+        import org.bukkit.event.EventHandler;
+        import org.bukkit.event.Listener;
+        import org.bukkit.event.player.PlayerInteractEvent;
+        import org.bukkit.event.player.PlayerItemHeldEvent;
+        import org.bukkit.inventory.ItemStack;
+        import us.core_network.crust.CrustPlugin;
+        import us.core_network.crust.claim.Claim;
+        import us.core_network.crust.config.ItemConfig;
 
-import java.util.HashMap;
-import java.util.Set;
+        import java.util.HashMap;
+        import java.util.Set;
 
 /**
  * Handles events relevant to setting up claims and resizing them

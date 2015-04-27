@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<configuration>
+    <jdbc>
+        <driver>org.sqlite.JDBC</driver>
+        <url>jdbc:sqlite:/Users/tux/minecraft/crustdev/plugins/Crust/crust.sqlite</url>
+    </jdbc>
+    <generator>
+        <database>
+            <name>org.jooq.util.sqlite.SQLiteDatabase</name>
+            <includes>.*</includes>
+            <excludes>sqlite_sequence</excludes>
+        </database>
+
+        <target>
+            <packageName>us.core_network.crust.io.dsl</packageName>
+            <directory>src/main/java/</directory>
+        </target>
+    </generator>
+</configuration>

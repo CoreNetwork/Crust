@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import us.core_network.crust.claim.Claim;
 import us.core_network.crust.claim.manipulation.ManipulationListener;
 import us.core_network.crust.config.ItemConfig;
+import us.core_network.crust.io.Database;
 import us.core_network.crust.util.AABBStore;
 
 import java.io.File;
@@ -36,6 +37,8 @@ public class CrustPlugin extends JavaPlugin {
         }
 
         Bukkit.getPluginManager().registerEvents(new ManipulationListener(), this);
+
+        Database.init(getDataFolder());
 
         getLogger().info("enabled.");
     }
